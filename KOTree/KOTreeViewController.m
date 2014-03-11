@@ -185,6 +185,8 @@
 	
 	for (NSInteger i = 0; i < [treeTableView numberOfRowsInSection:0]; ++i) {
 		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+		// Crashes the program when the list of cells is long enough that some cells are not visible on the screen.
+		// See documentation on cellForRowAtIndexPath for more information
 		KOTreeTableViewCell *cell = (KOTreeTableViewCell *)[treeTableView cellForRowAtIndexPath:indexPath];
 
 		for (KOTreeItem *tmpTreeItem in treeItemsToRemove) {
