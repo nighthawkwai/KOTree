@@ -260,6 +260,8 @@
 	if ([insertIndexPaths count])
 		[treeTableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
 	
+	// This code will result in an animation bug when one of the cells removed is the bottommost on the screen.
+	//Use UITableViewRowAnimationTop instead of UITableViewRowAnimationBottom to resolve
 	if ([removeIndexPaths count])
 		[treeTableView deleteRowsAtIndexPaths:removeIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
 }
